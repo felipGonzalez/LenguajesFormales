@@ -20,13 +20,11 @@ angular.module('AnalizadorLexico', [])
           app.listResult.push(listSplit[i] + "  " + Operator[listSplit[i]]);
 
         } else {
-          app.listResult.push(listSplit[i] + " : no es  una palabra reserveda");
+          app.listResult.push(listSplit[i] + " : Identificador");
         }
 
       }
     }
-
-
 
     function split(words) {
       var text = words.replace(/[\s]+/g, " ").trim();
