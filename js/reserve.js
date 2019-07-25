@@ -1,7 +1,7 @@
 var WordRerserve = {
 "abstract" : "abstract",
 "continue": "continue",
-"for"      : "for",
+"for"      : "Ciclo for",
 "new"         : "new",
 "switch": "switch",
 "assert": "assert",
@@ -11,11 +11,11 @@ var WordRerserve = {
 "synchronized": "synchronized",
 "boolean": "boolean",
 "do": "do",
-"if": "if",
+"if": "Condicional",
 "private": "private",
 "this": "this",
 "break"    : "break", 
-"double"  : "double",
+"double"  : "Variable numerica para numeros decimales",
 "implements": "implements",
 "protected": "protected",
 "throw": "throw",
@@ -25,7 +25,7 @@ var WordRerserve = {
 "public"        : "public",
 "throws": "throws",
 "case"     : "case",
-"enum": "enum",
+"enum": "Enumerodo",
 "instanceof" : "instanceof", 
 "return"       : "return",
 "transient": "transient",
@@ -48,14 +48,24 @@ var WordRerserve = {
 "float"   : "float",
 "native"      : "native",
 "super"         : "super",
-"while": "while",
-"String" : "String"
+"while": "Ciclo while",
+"String" : "Objeto da caracteres"
 }
+
+var Operator = {
+   "+":"Operador Aritmetico de suma",
+   "-":"Operador Aritmetico de resta",
+   "*":"Operador Aritmetico de multiplicacion",
+   "/":"Operador Aritmetico de divicion",
+   "%":"Operador Aritmetico Modulo"
+}
+
 
 
 
 angular.module('AnalizadorLexico', []).controller('reserve', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
    $scope.lista = wordReserve;
+   $scope.listOperator = Operator;
 
 
 }]);
