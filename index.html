@@ -4,7 +4,7 @@
 <head>
   <title>JAVA TUTORIAL</title>
   <script src="js/angular.min.js"></script>
-  <script src="js/controller.js"></script>
+  <script src="js/reserve.js"></script>
   <link rel="stylesheet" href="js/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 
@@ -16,7 +16,7 @@
     <br>  
     <div class="row">
           <div class="col-12">
-              <button type="button" class="btn btn-success">Analizar sintaxis</button>
+              <button type="button" class="btn btn-success"  ng-click="ctrl.verifySintaxis()">Analizar sintaxis</button>
               
           </div>
         </div>
@@ -31,8 +31,9 @@
             [ng-pattern="string"]
             [ng-change="string"]
             [ng-trim="boolean"]>
-          ...
-          </textarea>
+           </textarea>
+
+         
         </div>
       </div>
       <div class="col-6">
@@ -44,7 +45,8 @@
   </div>
 
 
-
+ 
+  <script src="js/controller.js"></script>
 
 </body>
 

@@ -1,0 +1,60 @@
+var WordRerserve = {
+"abstract" : "abstract",
+"continue": "continue",
+"for"      : "for",
+"new"         : "new",
+"switch": "switch",
+"assert": "assert",
+"default": "default",
+"goto": "goto",
+"package": "package",
+"synchronized": "synchronized",
+"boolean": "boolean",
+"do": "do",
+"if": "if",
+"private": "private",
+"this": "this",
+"break"    : "break", 
+"double"  : "double",
+"implements": "implements",
+"protected": "protected",
+"throw": "throw",
+"byte"      : "byte",
+"else"     : "else",
+"import"      : "import",
+"public"        : "public",
+"throws": "throws",
+"case"     : "case",
+"enum": "enum",
+"instanceof" : "instanceof", 
+"return"       : "return",
+"transient": "transient",
+"catch"    : "catch",
+"extends"  : "extends",
+"int"         : "int",
+"short"         : "short",
+"try": "try",
+"char"    : "char", 
+"final"   : "final",
+"interface"  : "interface",
+"static"        : "static",
+"void": "void",
+"class"    : "class", 
+"finally" : "finally",
+"long"        : "long",
+"strictfp"      : "strictfp",
+"volatile": "volatile",
+"const"     : "const",
+"float"   : "float",
+"native"      : "native",
+"super"         : "super",
+"while": "while"
+}
+
+
+
+angular.module('AnalizadorLexico', []).controller('reserve', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
+   $scope.lista = wordReserve;
+
+
+}]);
