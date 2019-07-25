@@ -8,6 +8,11 @@ angular.module('AnalizadorLexico', [])
 
     app.verifySintaxis = function() {
      console.log( app.textString);
+
+     var text = app.textString.replace(/[\s]+/g, " ").trim();
+     var word = text.split(" ");
+      console.log(word);
+      
     }
 
   });
