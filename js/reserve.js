@@ -48,7 +48,8 @@ var WordRerserve = {
 "float"   : "float",
 "native"      : "native",
 "super"         : "super",
-"while": "while"
+"while": "while",
+"String" : "String"
 }
 
 

@@ -5,6 +5,7 @@
   <title>JAVA TUTORIAL</title>
   <script src="js/angular.min.js"></script>
   <script src="js/reserve.js"></script>
+  <script type="text/javascript" src="/js/jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="js/bootstrap.min.css">
   <link rel="stylesheet" href="css/style.css">
 
@@ -12,42 +13,42 @@
 
 <body>
 
-  <div class="conteiner" ng-controller="Controller as ctrl">
-    <br>  
-    <div class="row">
-          <div class="col-12">
-              <button type="button" class="btn btn-success"  ng-click="ctrl.verifySintaxis()">Analizar sintaxis</button>
-              
+    <div class="conteiner" ng-controller="Controller as ctrl">
+      <br>  
+      <div class="row">
+            <div class="col-12">
+                <button type="button" class="btn btn-success"  ng-click="ctrl.verifySintaxis()">Analizar sintaxis</button>
+                
+            </div>
+          </div>
+          <br>
+      <div class="row areaWork">
+        
+        <div class="col-6">
+           
+          <div class="area border border-dark">
+              <textarea   spellcheck="false" class="area border border-dark"
+              ng-model="ctrl.textString"
+              [ng-pattern="string"]
+              [ng-change="string"]
+              [ng-trim="boolean"]>
+             </textarea>
+  
+           
           </div>
         </div>
-        <br>
-    <div class="row areaWork">
-      
-      <div class="col-6">
-         
-        <div class="area border border-dark">
-            <textarea   spellcheck="false" class="area border border-dark"
-            ng-model="ctrl.textString"
-            [ng-pattern="string"]
-            [ng-change="string"]
-            [ng-trim="boolean"]>
-           </textarea>
-
-         
+        <div class="col-6">
+            <div class="area border border-dark">
+            <div ng-repeat="item in ctrl.listResult track by $index"><h5>{{item}} </h5></div>
         </div>
       </div>
-      <div class="col-6">
-          <div class="area border border-dark">
-              
-      </div>
+  
     </div>
-
-  </div>
-
-
- 
-  <script src="js/controller.js"></script>
-
-</body>
+  
+  
+   
+    <script src="js/controller.js"></script>
+  
+  </body>
 
 </html>
