@@ -7,25 +7,33 @@ angular.module('AnalizadorLexico', [])
             app.listResult = [];
             var listSplit = split(app.textString);
             var countParentesis = 0;
+            var countif = 0;
             for (let i = 0; i < listSplit.length; i++) {
                 var vecline = [];
-                if ((For.test(listSplit[i]) == true && number.test(listSplit[i]) == true) || While.test(listSplit[i]) == true) {
+                if ((For.test(listSplit[i]) == true) || While.test(listSplit[i]) == true) {
                     countParentesis++;
                     console.log(countParentesis + "for o while");
                 } else if (string.test(listSplit[i]) == true || number.test(listSplit[i]) == true || character.test(listSplit[i]) == true) {
                     vecline = divideLine(listSplit[i]);
+                    console.log(countParentesis + "variable");
                     for (let j = 0; j < vecline.length; j++) {
                         if (typesData[vecline[j]] !== undefined) {
                             bombeo(vecline[j + 1], i);
                             break;
                         }
                     }
+                } else if (ElseIf.test(listSplit[i]) == true && If.test(listSplit[i]) == true && countif > 0) {
+                    console.log(countParentesis);
                 } else if (If.test(listSplit[i]) == true) {
                     countParentesis++;
+                    countif++;
                     console.log(countParentesis + "if");
+                } else if (Else.test(listSplit[i]) == true && countif > 0) {
+                    countif--;
                 } else if (derecho.test(listSplit[i]) == true) {
                     countParentesis--;
-                    console.log(countParentesis);
+                } else if (codigo.test(listSplit[i]) == true) {
+                    console.log("valor")
                 } else {
                     app.listResult.push(`linea ${(i + 1)}: error de sintaxis `);
                 }
@@ -35,17 +43,6 @@ angular.module('AnalizadorLexico', [])
             } else if (countParentesis < 0) {
                 app.listResult.push(`sobra parentesis derecho`);
             }
-
-            /*
-                        for (let i = 0; i < listSplit.length; i++) {
-                            if (WordRerserve[listSplit[i]] !== undefined) {
-                                app.listResult.push(WordRerserve[listSplit[i]] + " : Es una palabra reserveda");
-                            } else if (Operator[listSplit[i]] !== undefined) {
-                                app.listResult.push(listSplit[i] + "  " + Operator[listSplit[i]]);
-                            } else {
-                                app.listResult.push(listSplit[i] + " : Identificador");
-                            }
-                        }*/
         }
 
         function split(words) {
