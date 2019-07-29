@@ -42,6 +42,8 @@ angular.module('AnalizadorLexico', [])
                 app.listResult.push(`falta parentesis derecho`);
             } else if (countParentesis < 0) {
                 app.listResult.push(`sobra parentesis derecho`);
+            }else {
+                app.listResult.push(`Sintaxis correcta`);
             }
         }
 
