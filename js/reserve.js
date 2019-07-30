@@ -68,10 +68,10 @@ var typesData = {
     "char": "Es un caracter",
 }
 
-const string = new RegExp(/\s*((String)\s([a-zA-Z0-9]*)(\s*=\s*"[a-zA-Z\s]*")?\s*;\s*)/);
+const string = new RegExp(/\s*((String)\s([a-zA-Z0-9]*)(\s*=\s*"[a-zA-Z0-9\s]*")?\s*;\s*)/);
 const number = new RegExp(`\\s*((int|double|float)\\s([a-zA-Z0-9]*)(\\s*=\\s*[0-9]*)?\\s*;\\s*)`);
 const character = new RegExp(/\s*((char)\s([a-zA-Z0-9]*)(\s*=\s*"[a-zA-Z\s]")?\s*;\s*)/);
-const For = new RegExp(`\\s*(for)\\s*\\((\\s*(int|double|float)\\s+[a-z]+\\s*(=)\\s*[0-9]+\\s*(;)\\s*[a-z]+\\s*(>|<|>=|<=|==|!=)\\s*[0-9]+\\s*(;)\\s*[a-z]+(\\+\\+|\\-\\-)\\))\\s*\\{\\s*`);
+const For = new RegExp(`\\s*(for)\\s*\\((\\s*(int|double|float)\\s+[a-z]+\\s*(=)\\s*[0-9]+\\s*(;)\\s*[a-z]+\\s*(>|<|>=|<=|==|!=)\\s*[a-zA-Z0-9]+\\s*(;)\\s*[a-z]+(\\+\\+|\\-\\-)\\))\\s*\\{\\s*`);
 const While = new RegExp(/\s*(while)\s*[(]\s*(([a-zA-Z0-9]+\s*(>|<|>=|<=|==|!=)\s*[a-zA-Z0-9]+\s*)|[a-zA-Z0-9]+)\s*[)]\s*\{/);
 const If = new RegExp(/\s*(if)\s*[(]\s*([a-zA-Z0-9]*|([a-zA-Z0-9]*\s*(>|<|>=|<=|==|!=)\s*[a-zA-Z0-9]*\s*))\s*[)]\s*\{\s*/);
 const ElseIf = new RegExp(/(\s*}\s*else\s+if)\s*[(]\s*([a-zA-Z0-9]*|([a-zA-Z0-9]*\s*(>|<|>=|<=|==|!=)\s*[a-zA-Z0-9]*\s*))\s*[)]\s*\{\s*/);

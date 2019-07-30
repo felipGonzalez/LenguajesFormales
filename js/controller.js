@@ -3,11 +3,13 @@ angular.module('AnalizadorLexico', [])
         var app = this;
         app.textString = "";
         app.listResult;
+
         app.verifySintaxis = function() {
             app.listResult = [];
             var listSplit = split(app.textString);
             var countParentesis = 0;
             var countif = 0;
+            var verdadero = true;
             for (let i = 0; i < listSplit.length; i++) {
                 var vecline = [];
                 if ((For.test(listSplit[i]) == true) || While.test(listSplit[i]) == true) {
@@ -36,13 +38,18 @@ angular.module('AnalizadorLexico', [])
                     console.log("valor")
                 } else {
                     app.listResult.push(`linea ${(i + 1)}: error de sintaxis `);
+                    verdadero = false;
                 }
             }
+
             if (countParentesis > 0) {
+                verdadero = false;
                 app.listResult.push(`falta parentesis derecho`);
             } else if (countParentesis < 0) {
+                verdadero = false;
                 app.listResult.push(`sobra parentesis derecho`);
-            }else {
+            }
+            if (verdadero == true) {
                 app.listResult.push(`Sintaxis correcta`);
             }
         }
@@ -65,7 +72,6 @@ angular.module('AnalizadorLexico', [])
         }
 
         function bombeo(word, i) {
-            console.log(i);
             if (word.length > 2 && (WordRerserve[word] === undefined)) {
                 var indexChar = Math.floor((word.length) / 2);
                 aplyBombeo(word, indexChar, i);
@@ -80,10 +86,12 @@ angular.module('AnalizadorLexico', [])
             var str = '';
             var bombeo = "";
             var cadena = "";
+
             for (let i = 0; i < 10; i++) {
                 bombeo = setCharAt(word, index, str);
                 cadena += bombeo
                 if (WordRerserve[bombeo] !== undefined) {
+
                     app.listResult.push(`linea ${(j + 1)}: La variable ${word} aplicando lema de bombeo con  n = ${i} da como resultado
                         una palabra reservada del sistema : ${bombeo}`);
                     app.listResult.push(cadena);
